@@ -347,3 +347,31 @@ var Schemes = []string{
 	`z39.50r`,
 	`z39.50s`,
 }
+
+// SchemesNoAuthority is a sorted list of some well-known url schemes that are
+// followed by ":" instead of "://". The list includes both officially
+// registered and unofficial schemes.
+var SchemesNoAuthority = []string{
+	`bitcoin`, // Bitcoin
+	`cid`,     // Content-ID
+	`file`,    // Files
+	`magnet`,  // Torrent magnets
+	`mailto`,  // Mail
+	`mid`,     // Message-ID
+	`sms`,     // SMS
+	`tel`,     // Telephone
+	`xmpp`,    // XMPP
+}
+
+// SchemesUnofficial is a sorted list of some well-known url schemes which
+// aren't officially registered just yet. They tend to correspond to software.
+//
+// Mostly collected from https://en.wikipedia.org/wiki/List_of_URI_schemes#Unofficial_but_common_URI_schemes.
+var SchemesUnofficial = []string{
+	`jdbc`,       // Java database Connectivity
+	`postgres`,   // PostgreSQL (short form)
+	`postgresql`, // PostgreSQL
+	`slack`,      // Slack
+	`zoommtg`,    // Zoom (desktop)
+	`zoomus`,     // Zoom (mobile)
+}
