@@ -1,6 +1,6 @@
 # extraURLs
 
-#### 使用Go实现基于RegExp的文本RRL提取，使用范例：
+#### 使用Go实现基于RegExp的文本RRL提取，参考xurl，使用范例：
 ```go
 import "github.com/enplee/extraURLs/"
 
@@ -29,3 +29,6 @@ func main() {
     * 每项数字前导的0可以省略，省略后前导数字仍是0则继续
     * 可以用双冒号“::”表示一组0或多组连续的0，但只能出现一次
     * 如果这个地址实际上是IPv4的地址，后32位可以用10进制数表示
+
+
+
