@@ -24,7 +24,7 @@ const (
 
 	iri			= `[` + iriChar + `]([` + iriChar + `\-]*[` + iriChar + `])?`
 	domain 		= `(` + iri + `\.)+`
-	octet 		= `25[0-5]|2[0-4][0-0]|1[0-9]{2}|[1-9][0-9]|[0-9]`
+	octet 		= `(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])`
 	ipV4 		= `\b` + octet + `\.` + octet + `\.` + octet + `\.` + octet + `\b`
 	ipv6 = `([0-9a-fA-F]{1,4}:([0-9a-fA-F]{1,4}:([0-9a-fA-F]{1,4}:([0-9a-fA-F]{1,4}:([0-9a-fA-F]{1,4}:[0-9a-fA-F]{0,4}|:[0-9a-fA-F]{1,4})?|(:[0-9a-fA-F]{1,4}){0,2})|(:[0-9a-fA-F]{1,4}){0,3})|(:[0-9a-fA-F]{1,4}){0,4})|:(:[0-9a-fA-F]{1,4}){0,5})((:[0-9a-fA-F]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9a-fA-F]{1,4}:){1,6}|:):[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){7}:`
 	ipAddr   	= `(` + ipV4 + `|` + ipv6 + `)`
@@ -35,7 +35,7 @@ func anyOf(strs ...string) string {
 	var sb strings.Builder
 	sb.WriteByte('(')
 	for i,s := range strs {
-		if i != 1 {
+		if i != 0 {
 			sb.WriteByte('|')
 		}
 		sb.WriteString(regexp.QuoteMeta(s))  // quoteMeta 自动转义
@@ -63,5 +63,27 @@ func getRelaxedExp() string {
 	webURL := hostName + port + `(/|/` + pathCont + `)?`
 	email := `[a-zA-Z0-9._%\-+]+@` + siteDomain
 	return getStrictExp() + `|` + webURL + `|` + email
+}
+
+func Strict() *regexp.Regexp{
+	re := regexp.MustCompile(getStrictExp())
+	re.Longest()
+	return re
+}
+
+func Relaxed() *regexp.Regexp {
+	re := regexp.MustCompile(getRelaxedExp())
+	re.Longest()
+	return re
+}
+
+func StrictMatchingScheme(exp string) (*regexp.Regexp,error){
+	strictMatching := `(?i)(` + exp + `)(?-i)` + pathCont
+	re, err := regexp.Compile(strictMatching)
+	if err != nil {
+		return nil, err
+	}
+	re.Longest()
+	return re,nil
 }
 
