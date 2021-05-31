@@ -2,7 +2,7 @@
 
 package extraURLs
 
-// TLDs维护了一个顶级域名的有序集合
+// TLDs 维护了一个顶级域名的有序集合
 //
 // 资源地址:
 //  * https://data.iana.org/TLD/tlds-alpha-by-domain.txt
