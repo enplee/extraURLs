@@ -8,6 +8,9 @@ package extraURLs
 //  * https://data.iana.org/TLD/tlds-alpha-by-domain.txt
 //  * https://publicsuffix.org/list/effective_tld_names.dat
 var TLDs = []string{
+	`com`,
+	`org`,
+	`edu`,
 	`aaa`,
 	`aarp`,
 	`abarth`,
@@ -278,7 +281,6 @@ var TLDs = []string{
 	`coffee`,
 	`college`,
 	`cologne`,
-	`com`,
 	`comcast`,
 	`commbank`,
 	`community`,
@@ -381,7 +383,6 @@ var TLDs = []string{
 	`ec`,
 	`eco`,
 	`edeka`,
-	`edu`,
 	`education`,
 	`ee`,
 	`eg`,
@@ -904,7 +905,6 @@ var TLDs = []string{
 	`open`,
 	`oracle`,
 	`orange`,
-	`org`,
 	`organic`,
 	`origins`,
 	`osaka`,

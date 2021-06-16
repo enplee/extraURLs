@@ -347,13 +347,13 @@ func BenchmarkRelaxedMany(b *testing.B) {
 	xmpp:foo@bar.com`)
 }
 
-func TestTaobao(t *testing.T) {
+func BenchmarkTestTaobao(b *testing.B) {
 	relaxed:= Relaxed()
 	findString := relaxed.FindString("5.0信qP7SXU61BVs！ https://m.tb.cn/h.4tgOFnr?sm=ec002f  THEWOW用料3米定制jin口雪纺压褶工艺松紧腰精致V领泡泡袖连衣裙")
 	fmt.Println(findString) // https://m.tb.cn/h.4tgOFnr?sm=ec002f
 }
 
-func TestBilibili(t *testing.T) {
+func BenchmarkTestBilibili(b *testing.B) {
 	relaxed:= Relaxed()
 	findString := relaxed.FindString("https://www.bilibili.com/video/BV1fy4y1g78N?share_source=copy_web")
 	fmt.Println(findString) //https://www.bilibili.com/video/BV1fy4y1g78N?share_source=copy_web

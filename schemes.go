@@ -6,7 +6,8 @@ package extraURLs
 // IANA资源地址：https://www.iana.org/assignments/uri-schemes/uri-schemes-1.csv
 
 var Schemes = []string{
-	`URI Scheme`,
+	`http`,
+	`https`,
 	`aaa`,
 	`aaas`,
 	`about`,
@@ -103,8 +104,6 @@ var Schemes = []string{
 	`ham`,
 	`hcap`,
 	`hcp`,
-	`http`,
-	`https`,
 	`hxxp`,
 	`hxxps`,
 	`hydrazone`,
