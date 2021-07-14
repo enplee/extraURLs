@@ -5,6 +5,7 @@ package extraURLs
 
 import (
 	"fmt"
+	"github.com/enplee/extraURLs/redirect"
 	"regexp"
 	"testing"
 )
@@ -357,4 +358,14 @@ func BenchmarkTestBilibili(b *testing.B) {
 	relaxed:= Relaxed()
 	findString := relaxed.FindString("https://www.bilibili.com/video/BV1fy4y1g78N?share_source=copy_web")
 	fmt.Println(findString) //https://www.bilibili.com/video/BV1fy4y1g78N?share_source=copy_web
+}
+func TestRedirection(t *testing.T) {
+	//s := "https://github.com/enplee/extraURLs"
+	shortS := "https://www.zhihu.com/people/zi-fei-yu-6-72-15/answers"
+	//sCR, _ := redirect.CheckRedirect(s)
+	ssCR, err := redirect.CheckRedirect(shortS)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(ssCR)
 }
