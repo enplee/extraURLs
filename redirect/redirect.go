@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 )
-
+// http://mrw.so/65y6yC
 func CheckRedirect(url string) (string,error){
 	if url == "" {
 		return "",nil
