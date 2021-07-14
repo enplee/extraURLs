@@ -24,6 +24,7 @@ func CheckRedirect(url string) (string,error){
 	}
 	return url,nil
 }
+// TODO: timeOut & retry
 
 func CustomCheckRedirect(req *http.Request, via []*http.Request)  error {
 	//自用，将url根据需求进行组合
